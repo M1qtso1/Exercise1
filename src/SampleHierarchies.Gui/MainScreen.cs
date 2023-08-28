@@ -11,10 +11,6 @@ namespace SampleHierarchies.Gui;
 /// </summary>
 public sealed class MainScreen : Screen
 {
-    private void ResetConsoleColor()
-    {
-        Console.ResetColor();
-    }
     #region Properties And Ctor
 
     /// <summary>
@@ -24,35 +20,18 @@ public sealed class MainScreen : Screen
     private AnimalsScreen _animalsScreen;
     private ISettingsService _settingsService;
     private ISettings _settings;
-    //private SettingsScreen _settingsScreen;
 
     /// <summary>
     /// Ctor.
     /// </summary>
     /// <param name="dataService">Data service reference</param>
     /// <param name="animalsScreen">Animals screen</param>
-    public MainScreen(IDataService dataService, AnimalsScreen animalsScreen, SettingsService settingsService /*SettingsScreen settingsScreen*/)
+    public MainScreen(IDataService dataService, AnimalsScreen animalsScreen, SettingsService settingsService)
     {
         _dataService = dataService;
         _animalsScreen = animalsScreen;
         _settingsService = settingsService;
         _settings = settingsService.GetSettings();
-        //_settingsScreen = settingsScreen;
-
-        //_settings = _settingsService.Read("Settings.json") ?? new Settings
-        //{
-        //    Version = "1.0",
-        //    ScreenColors = new Dictionary<string, ConsoleColor>
-        //    {
-        //        { "MainScreen", ConsoleColor.Magenta },
-        //        { "AnimalScreen", ConsoleColor.DarkCyan },
-        //        { "MammalsScreen", ConsoleColor.DarkBlue },
-        //        { "DogsScreen", ConsoleColor.Yellow }
-        //    }
-        //};
-
-        // Load settings
-        //*settings = _settingsService.Read("settings.json") ?? new Settings();*/
     }
 
 
@@ -63,8 +42,6 @@ public sealed class MainScreen : Screen
     /// <inheritdoc/>
     public override void Show()
     {
-        
-        //Console.ForegroundColor = _settings.MainScreenColor;
         while (true)
         {
             Console.ForegroundColor = _settings.ScreenColors["MainScreen"];
@@ -93,10 +70,7 @@ public sealed class MainScreen : Screen
                         break;
 
                     case MainScreenChoices.Settings:
-                        //ModifySettings();
-                        //_settingsScreen.Show();
                         ShowSettingsMenu();
-                        //_settingsService.Write(_settings, "settings.json");
                         break;
 
                     case MainScreenChoices.Exit:
@@ -138,7 +112,7 @@ public sealed class MainScreen : Screen
                     ReadSettingsFromJson();
                     break;
                 case "0":
-                    return; // Go back to the Main Menu
+                    return;
                 default:
                     Console.WriteLine("Invalid choice. Try again.");
                     break;
@@ -176,8 +150,6 @@ public sealed class MainScreen : Screen
                 {
                     string[] screenNames = { "MainScreen", "AnimalScreen", "MammalsScreen", "DogsScreen" };
                     string selectedScreen = screenNames[screenChoice - 1];
-
-                    // Update the color in _settings.ScreenColors
                     _settings.ScreenColors[selectedScreen] = color;
                     Console.WriteLine($"{selectedScreen} color has been updated to {color}.");
                 }
@@ -204,22 +176,5 @@ public sealed class MainScreen : Screen
         _settings = _settingsService.Read("Settings.json") ?? _settings;
         Console.WriteLine("Settings have been read from Settings.json.");
     }
-
-
-    //private void ModifySettings()
-    //{
-    //    Console.WriteLine("Modify Settings:");
-    //    Console.Write("Enter Main Screen Color: ");
-    //    _settings.MainScreenColor = (ConsoleColor)Convert.ToInt32(Console.ReadLine()); 
-
-    //    Console.Write("Enter Animal Screen Color: ");
-    //    _settings.AnimalScreenColor = (ConsoleColor)Convert.ToInt32(Console.ReadLine());
-
-    //    Console.Write("Enter Mammal Screen Color: ");
-    //    _settings.MammalScreenColor = (ConsoleColor)Convert.ToInt32(Console.ReadLine());
-
-    //    Console.Write("Enter Dog Screen Color: ");
-    //    _settings.DogScreenColor = (ConsoleColor)Convert.ToInt32(Console.ReadLine());
-    //}
     #endregion // Public Methods
 }

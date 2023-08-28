@@ -12,7 +12,6 @@ public interface ISettingsService
     /// <param name="jsonPath">Json path</param>
     /// <returns></returns>
     ISettings? Read(string jsonPath);
-    //void SetColor(string filePath, string screenName);
     /// <summary>
     /// Write settings.
     /// </summary>

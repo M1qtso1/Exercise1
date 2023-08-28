@@ -13,10 +13,6 @@ namespace SampleHierarchies.Gui;
 public sealed class MammalsScreen : Screen
 {
     #region Properties And Ctor
-    private void ResetConsoleColor()
-    {
-        Console.ResetColor();
-    }
     /// <summary>
     /// Animals screen.
     /// </summary>
@@ -43,17 +39,6 @@ public sealed class MammalsScreen : Screen
         _whaleScreen = whaleScreen;
         _settingsService = settingsService;
         _settings = settingsService.GetSettings();
-        //_settings = _settingsService.Read("Settings.json") ?? new Settings
-        //{
-        //    Version = "1.0",
-        //    ScreenColors = new Dictionary<string, ConsoleColor>
-        //    {
-        //        { "MainScreen", ConsoleColor.Magenta },
-        //        { "AnimalScreen", ConsoleColor.DarkCyan },
-        //        { "MammalsScreen", ConsoleColor.DarkBlue },
-        //        { "DogsScreen", ConsoleColor.Yellow }
-        //    }
-        //};
     }
 
     public Color BackColor { get; internal set; }

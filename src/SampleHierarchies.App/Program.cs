@@ -52,7 +52,6 @@ internal static class Program
             .ConfigureServices((context, services) => 
             {
                 services.AddSingleton<ISettingsService, SettingsService>();
-                //services.AddSingleton<SettingsScreen, SettingsScreen>();
                 services.AddSingleton<SettingsService, SettingsService>();
                 services.AddSingleton<ISettings, Settings>();
                 services.AddSingleton<IEventAggregator, EventAggregator>();

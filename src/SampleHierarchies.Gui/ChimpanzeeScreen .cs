@@ -1,6 +1,5 @@
 ﻿using SampleHierarchies.Data.Mammals;
 using SampleHierarchies.Enums;
-using SampleHierarchies.Interfaces.Data;
 using SampleHierarchies.Interfaces.Services;
 
 namespace SampleHierarchies.Gui;

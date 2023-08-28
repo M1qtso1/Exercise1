@@ -1,4 +1,5 @@
-﻿using SampleHierarchies.Data;
+﻿using Newtonsoft.Json;
+using SampleHierarchies.Data;
 using SampleHierarchies.Enums;
 using SampleHierarchies.Interfaces.Data;
 using SampleHierarchies.Interfaces.Services;
@@ -11,10 +12,6 @@ namespace SampleHierarchies.Gui;
 /// </summary>
 public sealed class AnimalsScreen : Screen
 {
-    private void ResetConsoleColor()
-    {
-        Console.ResetColor();
-    }
     #region Properties And Ctor
 
     /// <summary>
@@ -44,17 +41,6 @@ public sealed class AnimalsScreen : Screen
         _mammalsScreen = mammalsScreen;
         _settingsService = settingsService;
         _settings = settingsService.GetSettings();
-        //_settings = _settingsService.Read("Settings.json") ?? new Settings
-        //{
-        //    Version = "1.0",
-        //    ScreenColors = new Dictionary<string, ConsoleColor>
-        //    {
-        //        { "MainScreen", ConsoleColor.Magenta },
-        //        { "AnimalScreen", ConsoleColor.DarkCyan },
-        //        { "MammalsScreen", ConsoleColor.DarkBlue },
-        //        { "DogsScreen", ConsoleColor.Yellow }
-        //    }
-        //};
     }
 
     #endregion Properties And Ctor
@@ -160,6 +146,5 @@ public sealed class AnimalsScreen : Screen
             Console.WriteLine("Data reading from was not successful.");
         }
     }
-
     #endregion // Private Methods
 }

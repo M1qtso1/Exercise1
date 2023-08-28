@@ -15,10 +15,7 @@ namespace SampleHierarchies.Gui;
 public sealed class DogsScreen : Screen
 {
     #region Properties And Ctor
-    private void ResetConsoleColor()
-    {
-        Console.ResetColor();
-    }
+
     /// <summary>
     /// Data service.
     /// </summary>
@@ -37,17 +34,6 @@ public sealed class DogsScreen : Screen
         _dataService = dataService;
         _settingsService = settingsService;
         _settings = settingsService.GetSettings();
-        //_settings = _settingsService.Read("Settings.json") ?? new Settings
-        //{
-        //    Version = "1.0",
-        //    ScreenColors = new Dictionary<string, ConsoleColor>
-        //    {
-        //        { "MainScreen", ConsoleColor.Magenta },
-        //        { "AnimalScreen", ConsoleColor.DarkCyan },
-        //        { "MammalsScreen", ConsoleColor.DarkBlue },
-        //        { "DogsScreen", ConsoleColor.Yellow }
-        //    }
-        //};
     }
 
     #endregion Properties And Ctor
