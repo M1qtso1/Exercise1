@@ -1,34 +1,18 @@
-﻿namespace SampleHierarchies.Interfaces.Data;
-/// <summary>
-/// Settings interface.
-/// </summary>
-public interface ISettings
+﻿using System;
+
+namespace SampleHierarchies.Interfaces.Data
 {
-    #region Interface Members
-    /// <summary>
-    /// Version of settings.
-    /// </summary>
-    string Version { get; set; }
+    public interface ISettings
+    {
+        string Version { get; set; }
+        //ConsoleColor MainScreenColor { get; set; }
+        //ConsoleColor AnimalScreenColor { get; set; }
+        //ConsoleColor MammalScreenColor { get; set; }
+        //ConsoleColor ScreenColor { get; set; }
+        //ConsoleColor DogScreenColor { get; set; }
+        Dictionary<string, ConsoleColor> ScreenColors { get; set; }
 
-    /// <summary>
-    /// Colour of main screen.
-    /// </summary>
-    string MainScreenColor { get; set; }
+        //string JsonPath { get; set; }
+    }
 
-    /// <summary>
-    /// Colour of animal screen.
-    /// </summary>
-    string AnimalScreenColor { get; set; }
-
-    /// <summary>
-    /// Colour of mammal screen.
-    /// </summary>
-    string MammalScreenColor { get; set; }
-
-    /// <summary>
-    /// Colour of dog screen.
-    /// </summary>
-    string DogScreenColor { get; set; }
-
-    #endregion // Interface Members
 }

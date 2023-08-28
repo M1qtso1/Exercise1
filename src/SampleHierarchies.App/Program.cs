@@ -51,24 +51,23 @@ internal static class Program
         return Host.CreateDefaultBuilder()
             .ConfigureServices((context, services) => 
             {
-                services.AddSingleton<Settings, Settings>();
-                services.AddSingleton<SettingsService, SettingsService>();
                 services.AddSingleton<ISettingsService, SettingsService>();
+                //services.AddSingleton<SettingsScreen, SettingsScreen>();
+                services.AddSingleton<SettingsService, SettingsService>();
+                services.AddSingleton<ISettings, Settings>();
                 services.AddSingleton<IEventAggregator, EventAggregator>();
                 services.AddSingleton<IDataService, DataService>();
                 services.AddSingleton<MainScreen, MainScreen>();
-                services.AddSingleton<SettingsScreen, SettingsScreen>();
-                services.AddSingleton<MainScreenColor, MainScreenColor>();
                 services.AddSingleton<DogsScreen, DogsScreen>();
                 services.AddSingleton<OrangutanScreen, OrangutanScreen>();
                 services.AddSingleton<ChimpanzeeScreen, ChimpanzeeScreen>();
                 services.AddSingleton<WhaleScreen, WhaleScreen>();
                 services.AddSingleton<AnimalsScreen, AnimalsScreen>();
                 services.AddSingleton<MammalsScreen, MammalsScreen>();
-                services.AddSingleton<ColorWriter, ColorWriter>();
             });
     }
 
     #endregion // Properties And Methods
+
 }
 

@@ -1,0 +1,9 @@
+{
+  "Version": null,
+  "ScreenColors": {
+    "MainScreen": 8,
+    "AnimalScreen": 13,
+    "MammalsScreen": 1,
+    "DogsScreen": 14
+  }
+}

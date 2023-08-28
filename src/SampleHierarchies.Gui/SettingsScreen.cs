@@ -1,86 +1,136 @@
-﻿using SampleHierarchies.Data;
-using SampleHierarchies.Enums;
-using SampleHierarchies.Interfaces.Data;
-using SampleHierarchies.Interfaces.Services;
-using SampleHierarchies.Services;
+﻿//using SampleHierarchies.Interfaces.Data;
+//using SampleHierarchies.Interfaces.Services;
+//using SampleHierarchies.Services; // Assuming your SettingsService is in this namespace
 
-namespace SampleHierarchies.Gui;
+//namespace SampleHierarchies.Gui
+//{
+//    public class SettingsScreen : Screen
+//    {
+//        private ISettings _settings;
+//        private ISettingsService _settingsService;
 
-/// <summary>
-/// Application main screen.
-/// </summary>
-public sealed class SettingsScreen : Screen
-{
-    #region Properties And Ctor
-    /// <summary>
-    /// Animals screen.
-    /// </summary>
-    private MainScreenColor _mainScreenColor;
+//        public SettingsScreen(ISettings settings, ISettingsService settingsService)
+//        {
+//            _settings = settings;
+//            _settingsService = settingsService;
+//        }
 
-    /// <summary>
-    /// Ctor.
-    /// </summary>
-    /// <param name="dataService">Data service reference</param>
-    /// <param name="animalsScreen">Animals screen</param>
-    public SettingsScreen(
-        MainScreenColor mainScreenColor)
-    {
-        _mainScreenColor = mainScreenColor;
-    }
+//        public override void Show()
+//        {
+//            while (true)
+//            {
+//                Console.WriteLine("Settings Menu:");
+//                Console.WriteLine("1. Change Colors");
+//                Console.WriteLine("2. Write Settings to JSON");
+//                Console.WriteLine("3. Read Settings from JSON");
+//                Console.WriteLine("4. Back to Main Menu");
 
-    #endregion Properties And Ctor
+//                Console.Write("Enter your choice: ");
+//                string choice = Console.ReadLine();
 
-    #region Public Methods
+//                switch (choice)
+//                {
+//                    case "1":
+//                        ChangeColors();
+//                        break;
+//                    case "2":
+//                        WriteSettingsToJson();
+//                        break;
+//                    case "3":
+//                        ReadSettingsFromJson();
+//                        break;
+//                    case "4":
+//                        return; // Go back to the main menu
+//                    default:
+//                        Console.WriteLine("Invalid choice. Try again.");
+//                        break;
+//                }
+//            }
+//        }
 
-    /// <inheritdoc/>
-    public override void Show()
-    {
-        while (true)
-        {
-            Console.WriteLine();
-            Console.WriteLine("Your available choices are:");
-            Console.WriteLine("0. Exit");
-            Console.WriteLine("1. Change the color of the main screen");
-            Console.WriteLine("2. Change the color of the animal screen");
-            Console.WriteLine("3. Change the color of the mammals screen");
-            Console.WriteLine("4. Change the color of the dogs screen");
-            Console.Write("Please enter your choice: ");
+//        private void ChangeColors()
+//        {
+//            while (true)
+//            {
+//                Console.WriteLine("Select a screen to change its color:");
+//                Console.WriteLine("1. MainScreen");
+//                Console.WriteLine("2. AnimalScreen");
+//                Console.WriteLine("3. MammalsScreen");
+//                Console.WriteLine("4. DogsScreen");
+//                Console.WriteLine("5. Back to Settings Menu");
 
-            string? choiceAsString = Console.ReadLine();
+//                Console.Write("Enter your choice: ");
+//                string choice = Console.ReadLine();
 
-            // Validate choice
-            try
-            {
-                if (choiceAsString is null)
-                {
-                    throw new ArgumentNullException(nameof(choiceAsString));
-                }
+//                if (choice == "5")
+//                {
+//                    return; // Go back to the Settings Menu
+//                }
 
-                SettingsScreenChoices choice = (SettingsScreenChoices)Int32.Parse(choiceAsString);
-                switch (choice)
-                {
-                    case SettingsScreenChoices.Main:
-                        _mainScreenColor.Show();
-                        break;
-                    case SettingsScreenChoices.Animals:
-                        _mainScreenColor.Show();
-                        break;
-                    case SettingsScreenChoices.Mammals:
-                        _mainScreenColor.Show();
-                        break;
-                    case SettingsScreenChoices.Dogs:
-                        _mainScreenColor.Show();
-                        break;
-                    case SettingsScreenChoices.Exit:
-                        Console.WriteLine("Goodbye.");
-                        return;
-                }
-            }
-            catch
-            {
-                Console.WriteLine("Invalid choice. Try again.");
-            }
-        }
-    }
-}
-#endregion
+//                if (int.TryParse(choice, out int screenChoice) && screenChoice >= 1 && screenChoice <= 4)
+//                {
+//                    Console.Write("Enter a new color (e.g., Red, Green, Yellow): ");
+//                    string newColor = Console.ReadLine();
+
+//                    if (Enum.TryParse(newColor, out ConsoleColor color))
+//                    {
+//                        string[] screenNames = { "MainScreen", "AnimalScreen", "MammalsScreen", "DogsScreen" };
+//                        string selectedScreen = screenNames[screenChoice - 1];
+
+//                        // Update the color in _settings.ScreenColors
+//                        _settings.ScreenColors[selectedScreen] = color;
+//                        Console.WriteLine($"{selectedScreen} color has been updated to {color}.");
+//                    }
+//                    else
+//                    {
+//                        Console.WriteLine("Invalid color. Please enter a valid ConsoleColor.");
+//                    }
+//                }
+//                else
+//                {
+//                    Console.WriteLine("Invalid choice. Try again.");
+//                }
+//            }
+//        }
+
+//        private void WriteSettingsToJson()
+//        {
+//            _settingsService.Write(_settings, "Settings.json");
+//            Console.WriteLine("Settings have been written to Settings.json.");
+//        }
+
+//        private void ReadSettingsFromJson()
+//        {
+//            _settings = _settingsService.Read("Settings.json") ?? _settings;
+//            Console.WriteLine("Settings have been read from Settings.json.");
+//        }
+//    }
+//}
+
+////using Newtonsoft.Json;
+////using SampleHierarchies.Data;
+////using SampleHierarchies.Interfaces.Data;
+////using SampleHierarchies.Interfaces.Services;
+////using System.IO;
+
+////namespace SampleHierarchies.Services
+////{
+////    public class SettingsService : ISettingsService
+////    {
+////        public ISettings? Read(string jsonPath)
+////        {
+////            if (File.Exists(jsonPath))
+////            {
+////                string json = File.ReadAllText(jsonPath);
+////                return JsonConvert.DeserializeObject<Settings>(json);
+////            }
+////            return null;
+////        }
+
+////        public void Write(ISettings settings, string jsonPath)
+////        {
+////            string json = JsonConvert.SerializeObject(settings, Formatting.Indented);
+////            File.WriteAllText(jsonPath, json);
+////        }
+////    }
+////}

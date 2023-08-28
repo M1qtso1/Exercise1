@@ -1,6 +1,9 @@
-﻿using SampleHierarchies.Data.Mammals;
+﻿using SampleHierarchies.Data;
+using SampleHierarchies.Data.Mammals;
 using SampleHierarchies.Enums;
+using SampleHierarchies.Interfaces.Data;
 using SampleHierarchies.Interfaces.Services;
+using SampleHierarchies.Services;
 using System.Drawing;
 
 
@@ -12,21 +15,39 @@ namespace SampleHierarchies.Gui;
 public sealed class DogsScreen : Screen
 {
     #region Properties And Ctor
-
+    private void ResetConsoleColor()
+    {
+        Console.ResetColor();
+    }
     /// <summary>
     /// Data service.
     /// </summary>
     private IDataService _dataService;
+    private ISettingsService _settingsService;
+    private ISettings _settings;
 
-    public Color BackColor { get; set; }
+    //public Color BackColor { get; set; }
 
     /// <summary>
     /// Ctor.
     /// </summary>
     /// <param name="dataService">Data service reference</param>
-    public DogsScreen(IDataService dataService)
+    public DogsScreen(IDataService dataService, SettingsService settingsService)
     {
         _dataService = dataService;
+        _settingsService = settingsService;
+        _settings = settingsService.GetSettings();
+        //_settings = _settingsService.Read("Settings.json") ?? new Settings
+        //{
+        //    Version = "1.0",
+        //    ScreenColors = new Dictionary<string, ConsoleColor>
+        //    {
+        //        { "MainScreen", ConsoleColor.Magenta },
+        //        { "AnimalScreen", ConsoleColor.DarkCyan },
+        //        { "MammalsScreen", ConsoleColor.DarkBlue },
+        //        { "DogsScreen", ConsoleColor.Yellow }
+        //    }
+        //};
     }
 
     #endregion Properties And Ctor
@@ -38,6 +59,7 @@ public sealed class DogsScreen : Screen
     {
         while (true)
         {
+            Console.ForegroundColor = _settings.ScreenColors["DogsScreen"];
             Console.WriteLine();
             Console.WriteLine("Your available choices are:");
             Console.WriteLine("0. Exit");

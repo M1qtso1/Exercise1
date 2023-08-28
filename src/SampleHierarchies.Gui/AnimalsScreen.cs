@@ -1,5 +1,8 @@
-﻿using SampleHierarchies.Enums;
+﻿using SampleHierarchies.Data;
+using SampleHierarchies.Enums;
+using SampleHierarchies.Interfaces.Data;
 using SampleHierarchies.Interfaces.Services;
+using SampleHierarchies.Services;
 
 namespace SampleHierarchies.Gui;
 
@@ -8,12 +11,18 @@ namespace SampleHierarchies.Gui;
 /// </summary>
 public sealed class AnimalsScreen : Screen
 {
+    private void ResetConsoleColor()
+    {
+        Console.ResetColor();
+    }
     #region Properties And Ctor
 
     /// <summary>
     /// Data service.
     /// </summary>
     private IDataService _dataService;
+    private ISettingsService _settingsService;
+    private ISettings _settings;
 
     /// <summary>
     /// Animals screen.
@@ -27,10 +36,25 @@ public sealed class AnimalsScreen : Screen
     /// <param name="animalsScreen">Animals screen</param>
     public AnimalsScreen(
         IDataService dataService,
-        MammalsScreen mammalsScreen)
+        MammalsScreen mammalsScreen,
+        SettingsService settingsService)
+
     {
         _dataService = dataService;
         _mammalsScreen = mammalsScreen;
+        _settingsService = settingsService;
+        _settings = settingsService.GetSettings();
+        //_settings = _settingsService.Read("Settings.json") ?? new Settings
+        //{
+        //    Version = "1.0",
+        //    ScreenColors = new Dictionary<string, ConsoleColor>
+        //    {
+        //        { "MainScreen", ConsoleColor.Magenta },
+        //        { "AnimalScreen", ConsoleColor.DarkCyan },
+        //        { "MammalsScreen", ConsoleColor.DarkBlue },
+        //        { "DogsScreen", ConsoleColor.Yellow }
+        //    }
+        //};
     }
 
     #endregion Properties And Ctor
@@ -40,8 +64,10 @@ public sealed class AnimalsScreen : Screen
     /// <inheritdoc/>
     public override void Show()
     {
+        
         while (true)
         {
+            Console.ForegroundColor = _settings.ScreenColors["AnimalScreen"];
             Console.WriteLine();
             Console.WriteLine("Your available choices are:");
             Console.WriteLine("0. Exit");

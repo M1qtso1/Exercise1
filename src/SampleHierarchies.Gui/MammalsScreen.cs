@@ -1,4 +1,8 @@
-﻿using SampleHierarchies.Enums;
+﻿using SampleHierarchies.Data;
+using SampleHierarchies.Enums;
+using SampleHierarchies.Interfaces.Data;
+using SampleHierarchies.Interfaces.Services;
+using SampleHierarchies.Services;
 using System.Drawing;
 
 namespace SampleHierarchies.Gui;
@@ -9,7 +13,10 @@ namespace SampleHierarchies.Gui;
 public sealed class MammalsScreen : Screen
 {
     #region Properties And Ctor
-
+    private void ResetConsoleColor()
+    {
+        Console.ResetColor();
+    }
     /// <summary>
     /// Animals screen.
     /// </summary>
@@ -17,6 +24,8 @@ public sealed class MammalsScreen : Screen
     private OrangutanScreen _orangutanScreen;
     private ChimpanzeeScreen _chimpanzeeScreen;
     private WhaleScreen _whaleScreen;
+    private ISettingsService _settingsService;
+    private ISettings _settings;
 
     /// <summary>
     /// Ctor.
@@ -26,12 +35,25 @@ public sealed class MammalsScreen : Screen
     /// <param name="chimpanzeeScreen">Chimpanzees screen</param>
     /// <param name="whaleScreen">Whales screen</param>
     /// Override the Display method to use the mammal screen color from the settings
-    public MammalsScreen(DogsScreen dogsScreen, OrangutanScreen orangutanScreen, ChimpanzeeScreen chimpanzeeScreen, WhaleScreen whaleScreen)
+    public MammalsScreen(DogsScreen dogsScreen, OrangutanScreen orangutanScreen, ChimpanzeeScreen chimpanzeeScreen, WhaleScreen whaleScreen, SettingsService settingsService)
     {
         _dogsScreen = dogsScreen;
         _orangutanScreen = orangutanScreen;
         _chimpanzeeScreen = chimpanzeeScreen;
         _whaleScreen = whaleScreen;
+        _settingsService = settingsService;
+        _settings = settingsService.GetSettings();
+        //_settings = _settingsService.Read("Settings.json") ?? new Settings
+        //{
+        //    Version = "1.0",
+        //    ScreenColors = new Dictionary<string, ConsoleColor>
+        //    {
+        //        { "MainScreen", ConsoleColor.Magenta },
+        //        { "AnimalScreen", ConsoleColor.DarkCyan },
+        //        { "MammalsScreen", ConsoleColor.DarkBlue },
+        //        { "DogsScreen", ConsoleColor.Yellow }
+        //    }
+        //};
     }
 
     public Color BackColor { get; internal set; }
@@ -45,6 +67,7 @@ public sealed class MammalsScreen : Screen
     {
         while (true)
         {
+            Console.ForegroundColor = _settings.ScreenColors["MammalsScreen"];
             Console.WriteLine();
             Console.WriteLine("Your available choices are:");
             Console.WriteLine("0. Exit");

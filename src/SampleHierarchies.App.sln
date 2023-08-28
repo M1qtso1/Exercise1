@@ -15,7 +15,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SampleHierarchies.Services"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SampleHierarchies.Gui", "SampleHierarchies.Gui\SampleHierarchies.Gui.csproj", "{1D62C792-9B40-43A5-94C8-87804AD61773}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SampleHierarchies.Helpers", "SampleHierarchies.Helpers\SampleHierarchies.Helpers.csproj", "{87E3AA3C-9757-40FC-ACC7-B3287B288336}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SampleHierarchies.Helpers", "SampleHierarchies.Helpers\SampleHierarchies.Helpers.csproj", "{87E3AA3C-9757-40FC-ACC7-B3287B288336}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -12,13 +12,12 @@ public interface ISettingsService
     /// <param name="jsonPath">Json path</param>
     /// <returns></returns>
     ISettings? Read(string jsonPath);
-
+    //void SetColor(string filePath, string screenName);
     /// <summary>
     /// Write settings.
     /// </summary>
     /// <param name="settings">Settings to written</param>
     /// <param name="jsonPath">Json path</param>
     void Write(ISettings settings, string jsonPath);
-
     #endregion // Interface Members
 }

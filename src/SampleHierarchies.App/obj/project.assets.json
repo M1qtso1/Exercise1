@@ -2482,6 +2482,7 @@
       "FluentAssertions >= 6.11.0",
       "Microsoft.Extensions.DependencyInjection >= 8.0.0-preview.2.23128.3",
       "Microsoft.Extensions.Hosting >= 8.0.0-preview.2.23128.3",
+      "Newtonsoft.Json >= 13.0.3",
       "PeanutButter.TinyEventAggregator >= 3.0.107",
       "SampleHierarchies.Gui >= 1.0.0",
       "SampleHierarchies.Interfaces >= 1.0.0",
@@ -2553,6 +2554,10 @@
           "Microsoft.Extensions.Hosting": {
             "target": "Package",
             "version": "[8.0.0-preview.2.23128.3, )"
+          },
+          "Newtonsoft.Json": {
+            "target": "Package",
+            "version": "[13.0.3, )"
           },
           "PeanutButter.TinyEventAggregator": {
             "target": "Package",
