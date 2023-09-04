@@ -13,7 +13,9 @@ public class Orangutan : MammalBase, IOrangutan
     /// <inheritdoc/>
     public override void Display()
     {
-        Console.WriteLine($"My name is: {Name},\nMy age is: {Age},\nArboreal lifestyle: {Lifestyle},\nThumbs: {Thumbs},\nLevel of intelligence is {Intelligence},\nBehavior: {Behavior},\nReproductive rate: {ReproductiveRate}\n------------------\n");
+        Console.WriteLine($"My name is: {Name},\nMy age is: {Age},\nArboreal lifestyle: {Lifestyle}," +
+                          $"\nThumbs: {Thumbs},\nLevel of intelligence is {Intelligence},\nBehavior: {Behavior}," +
+                          $"\nReproductive rate: {ReproductiveRate}\n------------------\n");
     }
 
     /// <inheritdoc/>
@@ -44,10 +46,15 @@ public class Orangutan : MammalBase, IOrangutan
     /// <summary>
     /// Ctor.
     /// </summary>
-    /// <param name="name">Name</param>
-    /// <param name="age">Age</param>
-    /// <param name="lifestyle">Breed</param>
-    public Orangutan(string name, int age, bool? lifestyle, bool? thumbs, int? intelligence, bool? behavior, bool? reproductiveRate) : base(name, age, MammalSpecies.Orangutan)
+    /// <param name="name"></param>
+    /// <param name="age"></param>
+    /// <param name="lifestyle"></param>
+    /// <param name="thumbs"></param>
+    /// <param name="intelligence"></param>
+    /// <param name="behavior"></param>
+    /// <param name="reproductiveRate"></param>
+    public Orangutan(string name, int age, bool? lifestyle, bool? thumbs, 
+        int? intelligence, bool? behavior, bool? reproductiveRate) : base(name, age, MammalSpecies.Orangutan)
     {
         Lifestyle = lifestyle;
         Thumbs = thumbs;

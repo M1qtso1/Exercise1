@@ -14,7 +14,9 @@ public class Chimpanzee : MammalBase, IChimpanzee
     /// <inheritdoc/>
     public override void Display()
     {
-        Console.WriteLine($"\nxMy name is: {Name},\nMy age is: {Age},\nThumbs: {Thumbs},\nBehavior: {Behavior},\nTool use: {Tool},\nLevel of intelligence is {Intelligence},\nFlexible diet: {Diet}\n------------------\n");
+        Console.WriteLine($"\nxMy name is: {Name},\nMy age is: {Age},\nThumbs: {Thumbs}," +
+                          $"\nBehavior: {Behavior},\nTool use: {Tool},\nLevel of intelligence is {Intelligence}," +
+                          $"\nFlexible diet: {Diet}\n------------------\n");
     }
 
     /// <inheritdoc/>
@@ -45,10 +47,15 @@ public class Chimpanzee : MammalBase, IChimpanzee
     /// <summary>
     /// Ctor.
     /// </summary>
-    /// <param name="name">Name</param>
-    /// <param name="age">Age</param>
-    /// <param name="lifestyle">Breed</param>
-    public Chimpanzee(string name, int age, bool? thumbs, string? behavior, bool? tool, int? intelligence, string? diet) : base(name, age, MammalSpecies.Chimpanzee)
+    /// <param name="name"></param>
+    /// <param name="age"></param>
+    /// <param name="thumbs"></param>
+    /// <param name="behavior"></param>
+    /// <param name="tool"></param>
+    /// <param name="intelligence"></param>
+    /// <param name="diet"></param>
+    public Chimpanzee(string name, int age, bool? thumbs, string? behavior, bool? tool, 
+        int? intelligence, string? diet) : base(name, age, MammalSpecies.Chimpanzee)
     {
         Thumbs = thumbs;
         Behavior = behavior;
@@ -56,6 +63,5 @@ public class Chimpanzee : MammalBase, IChimpanzee
         Intelligence = intelligence;
         Diet = diet;
     }
-
     #endregion // Ctors And Properties
 }

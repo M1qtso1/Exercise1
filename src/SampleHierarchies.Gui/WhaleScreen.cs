@@ -16,15 +16,13 @@ public sealed class WhaleScreen : Screen
     /// Data service.
     /// </summary>
     private IDataService _dataService;
-    private object age;
-    private object lifestyle;
 
     /// <summary>
     /// Ctor.
     /// </summary>
     /// <param name="dataService">Data service reference</param>
-    public WhaleScreen(IDataService dataService) 
-    { 
+    public WhaleScreen(IDataService dataService)
+    {
         _dataService = dataService;
     }
 
@@ -91,7 +89,7 @@ public sealed class WhaleScreen : Screen
     #region Private Methods
 
     /// <summary>
-    /// List all dogs.
+    /// List all whale.
     /// </summary>
     private void ListWhales()
     {

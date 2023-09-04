@@ -1,0 +1,48 @@
+{
+	"Mammals":	{
+		"Dogs":	[
+			{
+				"Breed":	"Huski",
+				"Species":	1,
+				"Name":	"Bobik",
+				"Age":	5
+			}
+		],
+		"Orangutans":	[
+			{
+				"Lifestyle":	true,
+				"Thumbs":	false,
+				"Intelligence":	116,
+				"Behavior":	true,
+				"ReproductiveRate":	false,
+				"Species":	2,
+				"Name":	"King-Kong",
+				"Age":	32
+			}
+		],
+		"Chimpanzees":	[
+			{
+				"Thumbs":	true,
+				"Behavior":	"Crazy",
+				"Tool":	false,
+				"Intelligence":	99,
+				"Diet":	"Good",
+				"Species":	3,
+				"Name":	"Bananik",
+				"Age":	2
+			}
+		],
+		"Whales":	[
+			{
+				"Echolocation":	true,
+				"Toothed":	true,
+				"Lifespan":	500,
+				"Behavior":	false,
+				"Feeds":	"It does",
+				"Species":	3,
+				"Name":	"Jaw",
+				"Age":	375
+			}
+		]
+	}
+}

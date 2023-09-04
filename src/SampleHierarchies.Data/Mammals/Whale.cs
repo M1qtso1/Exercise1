@@ -14,7 +14,9 @@ public class Whale : MammalBase, IWhale
     /// <inheritdoc/>
     public override void Display()
     {
-        Console.WriteLine($"\nMy name is: {Name},\nMy age is: {Age},\nEcholocation: {Echolocation},\nToothed whale: {Toothed},\nLong lifespan: {Lifespan},\nSociable behavior: {Behavior},\nFeeds on squid: {Feeds}\n------------------\n");
+        Console.WriteLine($"\nMy name is: {Name},\nMy age is: {Age},\nEcholocation: {Echolocation}," +
+            $"\nToothed whale: {Toothed},\nLong lifespan: {Lifespan},\nSociable behavior: {Behavior}," +
+            $"\nFeeds on squid: {Feeds}\n------------------\n");
     }
 
     /// <inheritdoc/>
@@ -45,10 +47,15 @@ public class Whale : MammalBase, IWhale
     /// <summary>
     /// Ctor.
     /// </summary>
-    /// <param name="name">Name</param>
-    /// <param name="age">Age</param>
-    /// <param name="lifestyle">Breed</param>
-    public Whale(string name, int age, bool? echolocation, bool? toothed, int? lifespan, bool? behavior, string? feeds) : base(name, age, MammalSpecies.Whale)
+    /// <param name="name"></param>
+    /// <param name="age"></param>
+    /// <param name="echolocation"></param>
+    /// <param name="toothed"></param>
+    /// <param name="lifespan"></param>
+    /// <param name="behavior"></param>
+    /// <param name="feeds"></param>
+    public Whale(string name, int age, bool? echolocation, bool? toothed, int? lifespan, 
+        bool? behavior, string? feeds) : base(name, age, MammalSpecies.Whale)
     {
         Echolocation = echolocation;
         Toothed = toothed;

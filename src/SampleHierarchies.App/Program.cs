@@ -49,7 +49,7 @@ internal static class Program
     static IHostBuilder CreateHostBuilder()
     {
         return Host.CreateDefaultBuilder()
-            .ConfigureServices((context, services) => 
+            .ConfigureServices((context, services) =>
             {
                 services.AddSingleton<ISettingsService, SettingsService>();
                 services.AddSingleton<SettingsService, SettingsService>();
@@ -65,7 +65,6 @@ internal static class Program
                 services.AddSingleton<MammalsScreen, MammalsScreen>();
             });
     }
-
     #endregion // Properties And Methods
 
 }

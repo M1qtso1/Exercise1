@@ -10,7 +10,7 @@ public interface IMammals
     #region Interface Members
 
     /// <summary>
-    /// Dogs collection.
+    /// Animals collections.
     /// </summary>
     List<IDog> Dogs { get; set; }
     List<IOrangutan> Orangutans { get; set; }

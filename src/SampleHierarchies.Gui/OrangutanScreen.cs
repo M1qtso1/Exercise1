@@ -16,8 +16,6 @@ public sealed class OrangutanScreen : Screen
     /// Data service.
     /// </summary>
     private IDataService _dataService;
-    private object age;
-    private object lifestyle;
 
     /// <summary>
     /// Ctor.
@@ -45,7 +43,6 @@ public sealed class OrangutanScreen : Screen
             Console.WriteLine("3. Delete existing orangutan");
             Console.WriteLine("4. Modify existing orangutan");
             Console.Write("Please enter your choice: ");
-
             string? choiceAsString = Console.ReadLine();
 
             // Validate choice
@@ -66,7 +63,7 @@ public sealed class OrangutanScreen : Screen
                     case OrangutanScreenChoices.Create:
                         AddOrangutan(); break;
 
-                    case OrangutanScreenChoices.Delete: 
+                    case OrangutanScreenChoices.Delete:
                         DeleteOrangutan();
                         break;
 
@@ -91,7 +88,7 @@ public sealed class OrangutanScreen : Screen
     #region Private Methods
 
     /// <summary>
-    /// List all dogs.
+    /// List all orangutans.
     /// </summary>
     private void ListOrangutans()
     {

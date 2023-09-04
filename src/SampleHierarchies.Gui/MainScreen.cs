@@ -24,8 +24,9 @@ public sealed class MainScreen : Screen
     /// <summary>
     /// Ctor.
     /// </summary>
-    /// <param name="dataService">Data service reference</param>
-    /// <param name="animalsScreen">Animals screen</param>
+    /// <param name="dataService"></param>
+    /// <param name="animalsScreen"></param>
+    /// <param name="settingsService"></param>
     public MainScreen(IDataService dataService, AnimalsScreen animalsScreen, SettingsService settingsService)
     {
         _dataService = dataService;
@@ -51,9 +52,8 @@ public sealed class MainScreen : Screen
             Console.WriteLine("1. Animals");
             Console.WriteLine("2. Create a new settings");
             Console.Write("Please enter your choice: ");
-
             string? choiceAsString = Console.ReadLine();
-
+            
             // Validate choice
             try
             {
@@ -82,7 +82,7 @@ public sealed class MainScreen : Screen
             {
                 Console.WriteLine("Invalid choice. Try again.");
             }
-            
+
         }
     }
     private void ShowSettingsMenu()
@@ -96,7 +96,6 @@ public sealed class MainScreen : Screen
             Console.WriteLine("2. Write Settings to JSON");
             Console.WriteLine("3. Read Settings from JSON");
             Console.WriteLine("0. Back to Main Menu");
-
             Console.Write("Enter your choice: ");
             string choice = Console.ReadLine();
 
@@ -132,7 +131,6 @@ public sealed class MainScreen : Screen
             Console.WriteLine("3. MammalsScreen");
             Console.WriteLine("4. DogsScreen");
             Console.WriteLine("0. Back to Settings Menu");
-
             Console.Write("Enter your choice: ");
             string choice = Console.ReadLine();
 

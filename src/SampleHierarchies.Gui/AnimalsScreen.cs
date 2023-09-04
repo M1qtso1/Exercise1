@@ -15,7 +15,7 @@ public sealed class AnimalsScreen : Screen
     #region Properties And Ctor
 
     /// <summary>
-    /// Data service.
+    /// Data service, ISettingsService, ISettings
     /// </summary>
     private IDataService _dataService;
     private ISettingsService _settingsService;
@@ -29,8 +29,9 @@ public sealed class AnimalsScreen : Screen
     /// <summary>
     /// Ctor.
     /// </summary>
-    /// <param name="dataService">Data service reference</param>
-    /// <param name="animalsScreen">Animals screen</param>
+    /// <param name="dataService"></param>
+    /// <param name="mammalsScreen"></param>
+    /// <param name="settingsService"></param>
     public AnimalsScreen(
         IDataService dataService,
         MammalsScreen mammalsScreen,
@@ -50,7 +51,6 @@ public sealed class AnimalsScreen : Screen
     /// <inheritdoc/>
     public override void Show()
     {
-        
         while (true)
         {
             Console.ForegroundColor = _settings.ScreenColors["AnimalScreen"];
@@ -61,9 +61,7 @@ public sealed class AnimalsScreen : Screen
             Console.WriteLine("2. Save to file");
             Console.WriteLine("3. Read from file");
             Console.Write("Please enter your choice: ");
-
             string? choiceAsString = Console.ReadLine();
-
             // Validate choice
             try
             {

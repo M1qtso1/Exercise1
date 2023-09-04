@@ -16,7 +16,7 @@ public sealed class MammalsScreen : Screen
     /// <summary>
     /// Animals screen.
     /// </summary>
-    private DogsScreen _dogsScreen; 
+    private DogsScreen _dogsScreen;
     private OrangutanScreen _orangutanScreen;
     private ChimpanzeeScreen _chimpanzeeScreen;
     private WhaleScreen _whaleScreen;
@@ -26,12 +26,17 @@ public sealed class MammalsScreen : Screen
     /// <summary>
     /// Ctor.
     /// </summary>
-    /// <param name="dataService">Data service reference</param>
-    /// <param name="orangutanScreen">Orangutans screen</param>
-    /// <param name="chimpanzeeScreen">Chimpanzees screen</param>
-    /// <param name="whaleScreen">Whales screen</param>
-    /// Override the Display method to use the mammal screen color from the settings
-    public MammalsScreen(DogsScreen dogsScreen, OrangutanScreen orangutanScreen, ChimpanzeeScreen chimpanzeeScreen, WhaleScreen whaleScreen, SettingsService settingsService)
+    /// <param name="dogsScreen"></param>
+    /// <param name="orangutanScreen"></param>
+    /// <param name="chimpanzeeScreen"></param>
+    /// <param name="whaleScreen"></param>
+    /// <param name="settingsService"></param>
+    public MammalsScreen(
+        DogsScreen dogsScreen,
+        OrangutanScreen orangutanScreen,
+        ChimpanzeeScreen chimpanzeeScreen,
+        WhaleScreen whaleScreen,
+        SettingsService settingsService)
     {
         _dogsScreen = dogsScreen;
         _orangutanScreen = orangutanScreen;
@@ -40,8 +45,6 @@ public sealed class MammalsScreen : Screen
         _settingsService = settingsService;
         _settings = settingsService.GetSettings();
     }
-
-    public Color BackColor { get; internal set; }
 
     #endregion Properties And Ctor
 
@@ -61,7 +64,6 @@ public sealed class MammalsScreen : Screen
             Console.WriteLine("3. Chimpanzee");
             Console.WriteLine("4. Whale");
             Console.Write("Please enter your choice: ");
-
             string? choiceAsString = Console.ReadLine();
 
             // Validate choice

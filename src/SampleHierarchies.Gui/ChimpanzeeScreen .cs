@@ -15,15 +15,13 @@ public sealed class ChimpanzeeScreen : Screen
     /// Data service.
     /// </summary>
     private IDataService _dataService;
-    private object age;
-    private object lifestyle;
 
     /// <summary>
     /// Ctor.
     /// </summary>
     /// <param name="dataService">Data service reference</param>
     public ChimpanzeeScreen(IDataService dataService)
-    { 
+    {
         _dataService = dataService;
     }
 
@@ -44,7 +42,6 @@ public sealed class ChimpanzeeScreen : Screen
             Console.WriteLine("3. Delete existing chimpanzee");
             Console.WriteLine("4. Modify existing chimpanzee");
             Console.Write("Please enter your choice: ");
-
             string? choiceAsString = Console.ReadLine();
 
             // Validate choice
@@ -90,7 +87,7 @@ public sealed class ChimpanzeeScreen : Screen
     #region Private Methods
 
     /// <summary>
-    /// List all dogs.
+    /// List all chimpamzees.
     /// </summary>
     private void ListChimpanzees()
     {
